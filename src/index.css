@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Montserrat", sans-serif;
+  --color-parchment: #fcfaf7;
+  --color-ink: #1a1a1a;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-dark: #333333;
+  --color-gray-light: #eeeeee;
+  --color-accent: #8c7851;
+  --color-navy: #1a2b47;
+  --color-slate-gray: #64748b;
+  --color-border-subtle: #e5e5e5;
+  --color-border-line: #d4d4d4;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-parchment text-ink antialiased;
+  }
+}
+
+@layer components {
+  .shajara-line { 
+    @apply border-l border-border-line relative;
+  }
+  
+  .shajara-line::before { 
+    content: ''; 
+    @apply absolute -left-[1.5px] top-0 w-2.5 h-[1px] bg-border-line; 
+  }
+
+  .node-card { 
+    @apply border border-border-subtle bg-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-0.5 text-ink; 
+  }
+
+  .branch-label { 
+    @apply font-sans font-bold text-[10px] uppercase tracking-[0.4em] text-accent border-b border-border-line mb-8 pb-3; 
+  }
+
+  .year-pill { 
+    @apply bg-ink text-white text-[9px] px-2 py-0.5 rounded-sm font-bold tracking-tight; 
+  }
+}
